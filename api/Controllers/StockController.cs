@@ -13,6 +13,7 @@ namespace api.Controllers
     [ApiController]
     public class StockController : ControllerBase
     {
+        private const string V = "{id}";
         private readonly ApplicationDBContext _context;   
         public StockController(ApplicationDBContext context){
             _context = context;
@@ -38,6 +39,23 @@ namespace api.Controllers
             _context.Stocks.Add(stockModel);
             _context.SaveChanges();
             return CreatedAtAction(nameof(GetById),new {id = stockModel.Id},stockModel.ToStockDto());
+        }
+        [HttpPut]
+        public IActionResult Update([FromRoute] int id,[FromBody] UpdateStockRequestDto updateStock){
+            var stockModel = _context.Stocks.FirstOrDefault(s => s.Id == id);
+            if(stockModel == null){
+                return NotFound();
+            }
+
+            stockModel.Sympol = updateStock.Sympol;
+            stockModel.CompanyName = updateStock.CompanyName;
+            stockModel.Purcahase = updateStock.Purcahase;
+            stockModel.Industry = updateStock.Industry;
+            stockModel.LastDiv = updateStock.LastDiv;
+            stockModel.MarketCap = updateStock.MarketCap;
+
+            _context.SaveChanges();
+            return Ok(stockModel.ToStockDto());
         }
     }
 }
