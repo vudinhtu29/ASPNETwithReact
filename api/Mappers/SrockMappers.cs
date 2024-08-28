@@ -19,6 +19,15 @@ namespace api.Mappers
                 Industry = stockModel.Industry,
                 MarketCap = stockModel.MarketCap
             };
+        }public static Stock ToStockFromCreateDTO(this CreateStockRequestDto stockDto){
+            return new Stock{
+                Sympol = stockDto.Sympol,
+                CompanyName = stockDto.CompanyName,
+                Purcahase = stockDto.Purcahase,
+                LastDiv = stockDto.LastDiv,
+                Industry = stockDto.Industry,
+                MarketCap = stockDto.MarketCap    
+            };
         }
     }
 }
