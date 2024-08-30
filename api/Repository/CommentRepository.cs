@@ -26,6 +26,18 @@ namespace api.Properties
             return commentModel;
         }
 
+        public async Task<Comment?> DeleteAsync(int id)
+        {
+            var findId = await _context.Comments.FirstOrDefaultAsync(f => f.Id == id);
+            if(findId == null){
+                return null;
+            }
+
+            _context.Comments.Remove(findId);
+            await _context.SaveChangesAsync();
+            return findId;
+        }
+
         public async Task<List<Comment>> GetAllAsync()
         {
             return await _context.Comments.ToListAsync();
