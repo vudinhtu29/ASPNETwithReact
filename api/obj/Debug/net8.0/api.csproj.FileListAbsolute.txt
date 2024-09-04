@@ -140,3 +140,10 @@ D:\ProjectASPwithReact\ASPNETwithReact\api\bin\Debug\net8.0\Microsoft.AspNetCore
 D:\ProjectASPwithReact\ASPNETwithReact\api\bin\Debug\net8.0\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
 D:\ProjectASPwithReact\ASPNETwithReact\api\bin\Debug\net8.0\Newtonsoft.Json.dll
 D:\ProjectASPwithReact\ASPNETwithReact\api\bin\Debug\net8.0\Newtonsoft.Json.Bson.dll
+D:\ProjectASPwithReact\ASPNETwithReact\api\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+D:\ProjectASPwithReact\ASPNETwithReact\api\bin\Debug\net8.0\Microsoft.AspNetCore.Cryptography.Internal.dll
+D:\ProjectASPwithReact\ASPNETwithReact\api\bin\Debug\net8.0\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+D:\ProjectASPwithReact\ASPNETwithReact\api\bin\Debug\net8.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+D:\ProjectASPwithReact\ASPNETwithReact\api\bin\Debug\net8.0\Microsoft.Extensions.Identity.Core.dll
+D:\ProjectASPwithReact\ASPNETwithReact\api\bin\Debug\net8.0\Microsoft.Extensions.Identity.Stores.dll
+D:\ProjectASPwithReact\ASPNETwithReact\api\bin\Debug\net8.0\Microsoft.Extensions.Options.dll
