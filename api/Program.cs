@@ -3,6 +3,7 @@ using api.Interfaces;
 using api.Models;
 using api.Properties;
 using api.Repository;
+using api.Service;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -46,6 +47,7 @@ builder.Services.AddAuthentication(options => {
         ValidIssuer = builder.Configuration["JWT:Issuer"],
         ValidateAudience = true,
         ValidAudience = builder.Configuration["JWT:Audience"],
+        ValidateIssuerSigningKey = true,
         IssuerSigningKey = new SymmetricSecurityKey(
             System.Text.Encoding.UTF8.GetBytes(builder.Configuration["JWT:SigningKey"])
         )
@@ -53,6 +55,7 @@ builder.Services.AddAuthentication(options => {
 });
 builder.Services.AddScoped<IStockRepository,StockRepository>();
 builder.Services.AddScoped<ICommentRepository,CommentRepository>();
+builder.Services.AddScoped<ITokenService,TokenService>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
