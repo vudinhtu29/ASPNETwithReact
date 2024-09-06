@@ -7,6 +7,7 @@ using api.Interfaces;
 using api.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace api.Controllers
 {
@@ -21,6 +22,20 @@ namespace api.Controllers
             _userManager = userManager;
             _tokenService = tokenService;
         }
+
+        [HttpPost("Login")]
+        public async Task<IActionResult> Login([FromBody] LoginDto loginDto){
+            if(!ModelState.IsValid){
+                return BadRequest(ModelState);
+            }
+
+            var user = await _userManager.Users.FirstOrDefaultAsync(x => x.UserName == loginDto.Username);
+            if(user == null){
+                return null;
+            }
+            return null;
+        } 
+
         [HttpPost("Register")]
         public async Task<IActionResult> Register([FromBody] RegisterDto registerDto){
             try{
