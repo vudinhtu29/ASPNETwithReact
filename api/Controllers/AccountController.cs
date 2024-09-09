@@ -6,6 +6,7 @@ using api.Dtos.Account;
 using api.Interfaces;
 using api.Models;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.Data;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -45,6 +46,7 @@ namespace api.Controllers
                 }
             );
          } 
+         
 
         [HttpPost("Register")]
         public async Task<IActionResult> Register([FromBody] RegisterDto registerDto){
@@ -78,6 +80,14 @@ namespace api.Controllers
             }catch(Exception e){
                 return StatusCode(500,e);
             }
+        }
+
+        [HttpPut("ForgotPassword")]
+        public async Task<IActionResult> ForgotPassword([FromBody] ForgotPasswordDto forgotPasswordDto){
+            if(!ModelState.IsValid){
+                return BadRequest(ModelState);
+            }
+            return StatusCode(500,"Processing...");
         }
     }
 }
