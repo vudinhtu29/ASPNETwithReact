@@ -87,6 +87,11 @@ namespace api.Controllers
             if(!ModelState.IsValid){
                 return BadRequest(ModelState);
             }
+            var findAcc = await _userManager.Users.FirstOrDefaultAsync(x => x.Email == forgotPasswordDto.Username.ToLower());
+            if(findAcc == null){
+                return null;
+            }
+         
             return StatusCode(500,"Processing...");
         }
     }
